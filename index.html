@@ -4,300 +4,446 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amol Chitte | PLM &amp; Systems Engineering Leader</title>
-  <meta name="description" content="Amol Chitte: PLM and Systems Engineering leader with 16+ years in 3DEXPERIENCE, ENOVIA, CATIA, MBSE, engineering change management and digital thread across automotive, EV, aerospace and medical devices.">
+  <meta name="description" content="Amol Chitte: PLM and Systems Engineering leader with 16+ years in 3DEXPERIENCE, ENOVIA, CATIA, MBSE, engineering change management and digital thread.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #1c2430;
-      --muted: #5b6675;
-      --line: #e3e7ec;
-      --accent: #0a66c2;
-      --accent-dark: #084e94;
-      --bg: #ffffff;
-      --soft: #f5f7fa;
+      --paper: #eef2f4;      /* drafting paper */
+      --sheet: #ffffff;
+      --ink: #14213d;        /* drawing ink */
+      --line: #2b59c3;       /* construction line blue */
+      --grid: #d7e0e7;
+      --graphite: #56606e;
+      --redline: #c8102e;    /* markup red, used only for change / in-work */
+      --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--ink); background: var(--bg); line-height: 1.6;
+      font-family: var(--font);
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      padding: 28px;
     }
-    a { color: var(--accent); }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--line); }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--redline); outline-offset: 3px; }
 
-    nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); border-bottom: 1px solid var(--line); z-index: 10; }
-    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
-    nav .brand { font-weight: 700; color: var(--ink); text-decoration: none; }
-    nav .menu a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 0.93rem; }
-    nav .menu a:hover { color: var(--accent); }
+    /* ---------- drawing sheet frame ---------- */
+    .sheet {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 24px 24px,
+        var(--sheet);
+      border: 2px solid var(--ink);
+      outline: 1px solid var(--ink);
+      outline-offset: 8px;
+    }
+    .zones {
+      display: flex; justify-content: space-around;
+      position: absolute; left: 0; right: 0; top: -26px;
+      font-size: 11px; color: var(--graphite);
+      font-variation-settings: "wdth" 100;
+      pointer-events: none;
+    }
+    .zones.bottom { top: auto; bottom: -26px; }
+    .inner { padding: 64px 64px 40px; }
 
-    header { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
-    h1 { font-size: 2.5rem; line-height: 1.15; letter-spacing: -0.02em; }
-    .role { font-size: 1.15rem; color: var(--accent); font-weight: 600; margin-top: 8px; }
-    .intro { margin-top: 20px; font-size: 1.08rem; color: var(--muted); max-width: 680px; }
-    .loc { margin-top: 10px; color: var(--muted); font-size: 0.95rem; }
-    .links { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
+    nav {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 18px 64px; border-bottom: 1px solid var(--ink);
+      background: var(--sheet);
+      position: sticky; top: 0; z-index: 5;
+    }
+    nav .mark { font-weight: 800; font-stretch: 112%; font-variation-settings: "wdth" 112; text-decoration: none; color: var(--ink); }
+    nav .menu a { color: var(--graphite); text-decoration: none; margin-left: 22px; font-size: 15px; }
+    nav .menu a:hover { color: var(--line); }
+
+    /* ---------- hero ---------- */
+    .hero { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: end; padding-bottom: 56px; }
+    .hero h1 {
+      font-size: clamp(56px, 9vw, 124px);
+      line-height: 0.88;
+      font-weight: 850;
+      font-variation-settings: "wdth" 125;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { display: block; font-weight: 300; color: var(--line); }
+    .hero .lede { margin-top: 28px; font-size: 20px; max-width: 34ch; color: var(--ink); }
+    .actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
     .btn {
-      display: inline-block; padding: 9px 16px; border-radius: 6px; text-decoration: none;
-      font-weight: 600; font-size: 0.92rem; border: 1px solid var(--accent);
+      display: inline-block; padding: 11px 18px; font-weight: 650; font-size: 15px;
+      text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); background: var(--sheet);
     }
-    .btn.primary { background: var(--accent); color: #fff; }
-    .btn.primary:hover { background: var(--accent-dark); }
-    .btn.secondary { color: var(--accent); background: #fff; }
+    .btn.solid { background: var(--ink); color: #fff; }
+    .btn:hover { border-color: var(--line); color: var(--line); }
+    .btn.solid:hover { background: var(--line); color: #fff; }
 
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-    .stat { background: var(--soft); border-radius: 8px; padding: 16px 18px; }
-    .stat b { display: block; font-size: 1.5rem; color: var(--ink); }
-    .stat span { color: var(--muted); font-size: 0.9rem; }
+    /* title block */
+    .titleblock { border: 2px solid var(--ink); background: var(--sheet); font-size: 14px; }
+    .titleblock .row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
+    .titleblock .row:first-child { border-top: none; }
+    .titleblock .cell { padding: 8px 12px; border-left: 1px solid var(--ink); }
+    .titleblock .cell:first-child { border-left: none; }
+    .titleblock .full { grid-column: 1 / -1; border-left: none; }
+    .titleblock small { display: block; color: var(--graphite); font-size: 12px; }
+    .titleblock b { font-weight: 700; font-size: 15px; }
+    .titleblock .big b { font-size: 30px; font-weight: 850; font-variation-settings: "wdth" 115; line-height: 1.1; }
 
-    section { padding: 52px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 56px; }
-    h2 { font-size: 1.4rem; margin-bottom: 22px; }
-    h3 { font-size: 1.02rem; }
+    /* ---------- section heads ---------- */
+    section { padding: 56px 0; border-top: 1px solid var(--ink); scroll-margin-top: 70px; }
+    .head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+    h2 { font-size: 40px; font-weight: 800; font-variation-settings: "wdth" 118; line-height: 1; letter-spacing: -0.01em; }
+    .head p { color: var(--graphite); max-width: 46ch; }
 
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .card { background: var(--soft); border-radius: 8px; padding: 20px; }
-    .card h3 { margin-bottom: 6px; }
-    .card p { color: var(--muted); font-size: 0.95rem; }
+    /* ---------- digital thread infographic ---------- */
+    .thread { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; padding-top: 8px; }
+    .thread::before {
+      content: ""; position: absolute; left: calc(100% / 14); right: calc(100% / 14); top: 37px; height: 3px;
+      background: var(--line); transform-origin: left; animation: draw 1.6s cubic-bezier(.6,0,.2,1) .3s both;
+    }
+    .node { position: relative; text-align: center; padding: 0 8px; }
+    .dot {
+      width: 46px; height: 46px; margin: 8px auto 0; border-radius: 50%;
+      background: var(--sheet); border: 3px solid var(--line); position: relative; z-index: 1;
+      display: grid; place-items: center; font-weight: 800; color: var(--line); font-size: 15px;
+      animation: pop .35s ease-out both;
+    }
+    .node:nth-child(1) .dot { animation-delay: .3s; }
+    .node:nth-child(2) .dot { animation-delay: .5s; }
+    .node:nth-child(3) .dot { animation-delay: .7s; }
+    .node:nth-child(4) .dot { animation-delay: .9s; }
+    .node:nth-child(5) .dot { animation-delay: 1.1s; border-color: var(--redline); color: var(--redline); }
+    .node:nth-child(6) .dot { animation-delay: 1.3s; }
+    .node:nth-child(7) .dot { animation-delay: 1.5s; }
+    .node h3 { margin-top: 14px; font-size: 17px; font-weight: 750; line-height: 1.2; }
+    .node p { margin-top: 6px; font-size: 13.5px; color: var(--graphite); line-height: 1.4; }
+    .thread-note { margin-top: 36px; padding: 18px 22px; border-left: 4px solid var(--redline); background: var(--sheet); max-width: 70ch; }
 
-    .job { padding: 22px 0; border-top: 1px solid var(--line); }
-    .job:first-of-type { border-top: none; padding-top: 0; }
-    .job-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .job-title { font-weight: 700; }
-    .job-org { color: var(--muted); }
-    .job-date { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
-    .job ul { margin: 10px 0 0 18px; color: var(--ink); }
-    .job li { margin-bottom: 6px; font-size: 0.96rem; }
-    .job .tags { margin-top: 10px; }
+    @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-    .skill-group { margin-bottom: 20px; }
-    .skill-group h3 { font-size: 0.95rem; color: var(--muted); font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
-    ul.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
-    ul.tags li { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 0.88rem; background: #fff; }
+    /* ---------- BOM-style capability table ---------- */
+    table { width: 100%; border-collapse: collapse; background: var(--sheet); border: 2px solid var(--ink); }
+    th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+    th { font-size: 13px; font-weight: 650; color: var(--graphite); border-bottom: 1.5px solid var(--ink); background: #f7f9fa; }
+    tr:last-child td { border-bottom: none; }
+    .bom td:first-child { font-weight: 750; width: 26%; font-variation-settings: "wdth" 108; }
+    .bom td:last-child { color: var(--graphite); font-size: 14.5px; width: 28%; }
 
-    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-    th { color: var(--muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
-    .pill { display: inline-block; font-size: 0.78rem; padding: 2px 8px; border-radius: 999px; background: #fff4e0; color: #8a5a00; margin-left: 6px; }
-    .note { color: var(--muted); margin-top: 14px; font-size: 0.95rem; }
+    /* ---------- revision history ---------- */
+    .rev td.r { width: 64px; text-align: center; }
+    .rev .letter {
+      display: inline-grid; place-items: center; width: 38px; height: 38px;
+      border: 2px solid var(--ink); font-weight: 850; font-size: 18px;
+    }
+    .rev tr.current .letter { border-color: var(--redline); color: var(--redline); }
+    .rev .role { font-weight: 750; font-size: 17px; }
+    .rev .org { color: var(--graphite); font-size: 15px; }
+    .rev .when { white-space: nowrap; color: var(--graphite); font-size: 14.5px; width: 150px; }
+    .rev ul { margin: 8px 0 0 18px; font-size: 15px; }
+    .rev li { margin-bottom: 4px; }
+    .tag-current { display: inline-block; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--redline); border: 1.5px solid var(--redline); padding: 1px 7px; vertical-align: 2px; }
 
-    .quote { font-style: italic; color: var(--muted); text-align: center; padding: 40px 0 8px; }
-    footer { padding: 24px 0 48px; color: var(--muted); font-size: 0.9rem; text-align: center; }
+    /* ---------- reach strip ---------- */
+    .reach { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .reach h3 { font-size: 20px; font-weight: 750; margin-bottom: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 1.5px solid var(--ink); background: var(--sheet); padding: 6px 12px; font-size: 15px; font-weight: 550; }
 
-    @media (max-width: 640px) {
-      header { padding: 48px 0 36px; }
-      h1 { font-size: 1.95rem; }
-      .grid, .stats { grid-template-columns: 1fr; }
+    /* ---------- skills ---------- */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--ink); background: var(--sheet); }
+    .skills div { padding: 20px 22px; border-right: 1px solid var(--grid); border-bottom: 1px solid var(--grid); }
+    .skills div:nth-child(3n) { border-right: none; }
+    .skills div:nth-last-child(-n+3) { border-bottom: none; }
+    .skills h3 { font-size: 16px; font-weight: 750; margin-bottom: 8px; color: var(--line); }
+    .skills p { font-size: 14.5px; color: var(--ink); line-height: 1.6; }
+
+    /* ---------- certifications ---------- */
+    .state { display: inline-block; font-size: 13px; font-weight: 700; padding: 2px 9px; border: 1.5px solid currentColor; }
+    .state.released { color: var(--line); }
+    .state.inwork { color: var(--redline); }
+    .certs td:first-child { font-weight: 650; }
+    .certs td:nth-child(2) { color: var(--graphite); }
+
+    /* ---------- contact ---------- */
+    .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+    .contact h2 { font-size: clamp(40px, 6vw, 72px); }
+    .contact p { margin-top: 14px; color: var(--graphite); max-width: 42ch; }
+
+    footer { display: flex; justify-content: space-between; padding: 22px 64px; border-top: 1px solid var(--ink); font-size: 13px; color: var(--graphite); background: var(--sheet); }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      body { padding: 14px; }
+      .inner { padding: 40px 24px 24px; }
+      nav { padding: 14px 24px; }
       nav .menu { display: none; }
+      footer { padding: 18px 24px; flex-direction: column; gap: 4px; }
+      .zones { display: none; }
+      .sheet { outline-offset: 5px; }
+      .hero, .contact, .reach { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .skills div { border-right: none !important; border-bottom: 1px solid var(--grid) !important; }
+      .skills div:last-child { border-bottom: none !important; }
+      .thread { grid-template-columns: 1fr; gap: 18px; padding-left: 0; }
+      .thread::before { left: 30px; right: auto; top: 30px; bottom: 30px; width: 3px; height: auto; transform-origin: top; animation-name: drawY; }
+      .node { display: grid; grid-template-columns: 62px 1fr; text-align: left; padding: 0; align-items: start; }
+      .dot { margin: 0 0 0 7px; }
+      .node h3 { margin-top: 10px; }
+      .node p { grid-column: 2; margin-top: 2px; }
+      table.rev, .rev tbody, .rev tr, .rev td { display: block; }
+      .rev thead { display: none; }
+      .rev tr { padding: 14px; border-bottom: 1px solid var(--grid); }
+      .rev td { border: none; padding: 2px 0; width: auto !important; text-align: left !important; }
+      .bom thead { display: none; }
+      .bom tr, .bom td { display: block; width: auto !important; }
+      .bom td { border: none; padding: 4px 14px; }
+      .bom tr { padding: 10px 0; border-bottom: 1px solid var(--grid); }
+      .certs thead { display: none; }
+      .certs tr { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 12px 14px; border-bottom: 1px solid var(--grid); }
+      .certs td { border: none; padding: 0; }
+      .certs td:nth-child(2) { grid-row: 2; font-size: 14px; }
+      .certs td:nth-child(3) { grid-row: 1 / span 2; grid-column: 2; align-self: center; }
+      .node { row-gap: 0; }
+      .node h3 { margin-top: 12px; }
+      .node p { margin-top: 0; }
+      .thread::before { top: 40px; }
+    }
+    @keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .thread::before, .dot { animation: none; }
     }
   </style>
 </head>
 <body>
 
+<div class="sheet">
+  <div class="zones" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+  <div class="zones bottom" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+
   <nav>
-    <div class="wrap">
-      <a class="brand" href="#top">Amol Chitte</a>
-      <div class="menu">
-        <a href="#focus">Focus</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </div>
+    <a class="mark" href="#top">Amol Chitte</a>
+    <div class="menu">
+      <a href="#thread">Digital thread</a>
+      <a href="#work">What I do</a>
+      <a href="#history">Experience</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <div class="wrap" id="top">
+  <div class="inner" id="top">
 
-    <header>
-      <h1>Amol Chitte</h1>
-      <p class="role">PLM &amp; Systems Engineering Leader · 3DEXPERIENCE Solution Architect</p>
-      <p class="intro">
-        16+ years driving product development transformation across automotive, EV, aerospace,
-        medical device and life sciences. I connect systems architecture, requirements traceability
-        and PLM execution so product data flows from concept to manufacturing.
-      </p>
-      <p class="loc">Los Angeles, CA</p>
-      <div class="links">
-        <a class="btn primary" href="https://www.linkedin.com/in/amolchitte/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="https://www.credly.com/users/amol-chitte-cert" target="_blank" rel="noopener">Credly badges</a>
-        <a class="btn secondary" href="mailto:amol.chitte@outlook.com">Email</a>
-        <a class="btn secondary" href="https://github.com/achitte" target="_blank" rel="noopener">GitHub</a>
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <h1>Amol<span>Chitte</span></h1>
+        <p class="lede">I connect requirements, design, change and manufacturing into one digital thread on 3DEXPERIENCE.</p>
+        <div class="actions">
+          <a class="btn solid" href="mailto:amol.chitte@outlook.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/amolchitte/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://www.credly.com/users/amol-chitte-cert" target="_blank" rel="noopener">Credly badges</a>
+          <a class="btn" href="https://github.com/achitte" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
-      <div class="stats">
-        <div class="stat"><b>16+ years</b><span>in PLM</span></div>
-        <div class="stat"><b>6+ years</b><span>onsite in Europe, Japan &amp; USA</span></div>
-        <div class="stat"><b>5 industries</b><span>Automotive, EV, Aerospace, MedTech, Life Sciences</span></div>
-      </div>
-    </header>
 
-    <section id="focus">
-      <h2>What I focus on</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>3DEXPERIENCE architecture</h3>
-          <p>Solution design, configuration and administration across on-premise, IaaS, PaaS and DS Public Cloud, including upgrades and data migration.</p>
+      <div class="titleblock" role="table" aria-label="Profile summary">
+        <div class="row" role="row">
+          <div class="cell full big" role="cell"><small>Discipline</small><b>PLM &amp; Systems Engineering</b></div>
         </div>
-        <div class="card">
-          <h3>MBSE &amp; digital thread</h3>
-          <p>Tracing product intent from system requirements to BOM to manufacturing execution, using SysML and functional, logical and physical architecture.</p>
+        <div class="row" role="row">
+          <div class="cell" role="cell"><small>Experience</small><b>16+ years</b></div>
+          <div class="cell" role="cell"><small>Onsite abroad</small><b>6+ years</b></div>
         </div>
-        <div class="card">
-          <h3>Engineering change management</h3>
-          <p>Change request, change order and change action workflows, impact analysis and deviation management that keep changes fast and traceable.</p>
+        <div class="row" role="row">
+          <div class="cell" role="cell"><small>Current role</small><b>PLM &amp; Engineering Change Manager</b></div>
+          <div class="cell" role="cell"><small>Based in</small><b>Los Angeles, CA</b></div>
         </div>
-        <div class="card">
-          <h3>PLM–ERP integration</h3>
-          <p>Bidirectional integration strategy and data exchange architecture, including 3DEXPERIENCE ↔ SAP S/4HANA.</p>
-        </div>
-        <div class="card">
-          <h3>PLM strategy &amp; roadmaps</h3>
-          <p>Greenfield and brownfield implementations, fit-gap assessments, tool benchmarking and platform governance, aligned to TOGAF.</p>
-        </div>
-        <div class="card">
-          <h3>Organizational change</h3>
-          <p>Change programs based on Prosci ADKAR: impact assessments, stakeholder plans and role-based training so new tools actually get adopted.</p>
+        <div class="row" role="row">
+          <div class="cell" role="cell"><small>Platform</small><b>3DEXPERIENCE · ENOVIA · CATIA · DELMIA</b></div>
+          <div class="cell" role="cell"><small>Industries</small><b>Automotive, EV, Aerospace, MedTech, Life Sciences</b></div>
         </div>
       </div>
+    </div>
+
+    <!-- DIGITAL THREAD -->
+    <section id="thread">
+      <div class="head">
+        <h2>The digital thread I work on</h2>
+        <p>Product data moves left to right. I've built and fixed every step, and the hand-offs between them.</p>
+      </div>
+
+      <div class="thread">
+        <div class="node"><div class="dot">1</div><h3>Requirements</h3><p>SysML, Cameo, CATIA Magic, traceability</p></div>
+        <div class="node"><div class="dot">2</div><h3>System architecture</h3><p>Functional, logical and physical models</p></div>
+        <div class="node"><div class="dot">3</div><h3>Design</h3><p>CATIA on 3DEXPERIENCE</p></div>
+        <div class="node"><div class="dot">4</div><h3>Engineering BOM</h3><p>ENOVIA parts, documents, variants, effectivity</p></div>
+        <div class="node"><div class="dot">5</div><h3>Change</h3><p>CR, CO, CA, impact analysis, deviations</p></div>
+        <div class="node"><div class="dot">6</div><h3>Manufacturing BOM</h3><p>DELMIA MBOM, bill of process, work instructions</p></div>
+        <div class="node"><div class="dot">7</div><h3>ERP &amp; shop floor</h3><p>SAP S/4HANA, NetSuite integration</p></div>
+      </div>
+
+      <p class="thread-note">Most PLM programs don't fail inside one tool. They fail at the hand-offs, when requirements don't reach the BOM or a change doesn't reach the shop floor. That's where I spend most of my time.</p>
     </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">PLM &amp; Engineering Change Manager</span><br><span class="job-org">Singer Vehicle Design LLC · Los Angeles, CA</span></div>
-          <div class="job-date">Nov 2023 – Present</div>
-        </div>
-        <ul>
-          <li>Defined end-to-end PLM workflows connecting system requirements, design intent and engineering change execution.</li>
-          <li>Set up requirements traceability linking product specs and regulatory compliance to changes, deviations and closure workflows.</li>
-          <li>Designed and delivered OCM programs using Prosci ADKAR: change impact assessments, communication plans and role-based training.</li>
-          <li>Turned business requirements into configured tool behavior across 3DEXPERIENCE, ScanLogic and NetSuite.</li>
-          <li>Built KPI dashboards and process documentation to measure PLM initiative success.</li>
-        </ul>
+    <!-- WHAT I DO -->
+    <section id="work">
+      <div class="head">
+        <h2>What I do</h2>
+        <p>Six areas I'm hired for, with the tools I use for each.</p>
       </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">3DX Solution Architect</span><br><span class="job-org">Tata Technologies · Los Angeles, CA</span></div>
-          <div class="job-date">Jan 2020 – Nov 2023</div>
-        </div>
-        <ul>
-          <li>Architected an integrated 3DEXPERIENCE solution for a greenfield electric vehicle program, from requirements through manufacturing execution.</li>
-          <li>Built digital thread continuity across engineering and manufacturing with MBOM, Bill of Process and work instruction solutions in DELMIA.</li>
-          <li>Led the 3DX ↔ SAP S/4HANA integration strategy and data exchange architecture.</li>
-          <li>Drove adoption through stakeholder engagement plans, process workshops and internal change champions.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">PLM Consultant &amp; Technical Lead</span><br><span class="job-org">HCL Technologies · India &amp; Japan</span></div>
-          <div class="job-date">Jun 2016 – Jan 2020</div>
-        </div>
-        <ul>
-          <li>Analyzed current-state processes and defined a systems engineering strategy for an automotive 3DEXPERIENCE deployment.</li>
-          <li>Applied MBSE across the full lifecycle: requirements, prototyping, testing, training and support.</li>
-          <li>Technical focal point for platform configuration and engineering change workflows; coordinated onshore-offshore delivery.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">PLM Consultant</span><br><span class="job-org">Technia · Mumbai, India</span></div>
-          <div class="job-date">Mar 2013 – Jun 2016</div>
-        </div>
-        <ul>
-          <li>Designed data models for medical device product structures and implemented Regulatory Structure and Regulatory Affairs modules.</li>
-          <li>Deployed ENOVIA ↔ ERP integration via TIF.</li>
-          <li>Ran an onsite platform upgrade (V6R2010x → V6R2013x) in Finland and requirement workshops in Sweden.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">PLM Consultant</span><br><span class="job-org">IBM · Bangalore, India</span></div>
-          <div class="job-date">Sep 2012 – Mar 2013</div>
-        </div>
-        <ul>
-          <li>Supported an Integrated Product Development PLM system covering semiconductor design, material compliance and engineering change.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-head">
-          <div><span class="job-title">Software Engineer</span><br><span class="job-org">3DPLM Software Solutions · Pune, India</span></div>
-          <div class="job-date">Jun 2010 – Aug 2012</div>
-        </div>
-        <ul>
-          <li>Built ENOVIA V6 solutions for aerospace and CPG, including the Search Within Context feature in the EBOM view.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills &amp; tools</h2>
-
-      <div class="skill-group">
-        <h3>PLM platforms</h3>
-        <ul class="tags"><li>3DEXPERIENCE</li><li>CATIA</li><li>ENOVIA</li><li>DELMIA</li><li>3DSpace</li></ul>
-      </div>
-      <div class="skill-group">
-        <h3>ENOVIA development</h3>
-        <ul class="tags"><li>UI3C</li><li>JPO</li><li>MQL</li><li>TCL</li><li>JSP</li><li>Java</li><li>JavaScript</li><li>EKL</li></ul>
-      </div>
-      <div class="skill-group">
-        <h3>Dashboards &amp; integration</h3>
-        <ul class="tags"><li>UWA Framework</li><li>3DDashboard widgets</li><li>REST APIs</li><li>TVC (Technia)</li><li>SAP S/4HANA</li><li>NetSuite</li></ul>
-      </div>
-      <div class="skill-group">
-        <h3>MBSE &amp; architecture</h3>
-        <ul class="tags"><li>SysML</li><li>CATIA Magic</li><li>Cameo Systems Modeler</li><li>ArchiMate</li><li>TOGAF</li><li>Visio</li><li>Requirements traceability</li></ul>
-      </div>
-      <div class="skill-group">
-        <h3>PLM domains</h3>
-        <ul class="tags"><li>EBOM / MBOM</li><li>Change management (CR / CO / CA)</li><li>Configuration &amp; variants</li><li>Effectivity</li><li>Part &amp; document management</li><li>Digital manufacturing</li><li>Quality (NC, CAPA, APQP, PPAP)</li><li>Access &amp; license management</li></ul>
-      </div>
-      <div class="skill-group">
-        <h3>Delivery &amp; DevOps</h3>
-        <ul class="tags"><li>Jira</li><li>Confluence</li><li>Azure DevOps</li><li>Jenkins</li><li>GitLab</li><li>Git</li><li>SVN</li><li>MxUpdate</li><li>Spinner</li></ul>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <table>
-        <thead><tr><th>Certification</th><th>Issued by</th></tr></thead>
+      <table class="bom">
+        <thead><tr><th>Area</th><th>What it means</th><th>Tools &amp; methods</th></tr></thead>
         <tbody>
-          <tr><td>Project Management Professional (PMP®)</td><td>Project Management Institute</td></tr>
-          <tr><td>TOGAF® 9 Certified</td><td>The Open Group</td></tr>
-          <tr><td>ArchiMate®</td><td>The Open Group</td></tr>
-          <tr><td>3DEXPERIENCE Solution Architect</td><td>Dassault Systèmes</td></tr>
-          <tr><td>3DEXPERIENCE Systems Engineering</td><td>Dassault Systèmes</td></tr>
-          <tr><td>Value Engagement Framework for C&amp;SI Partners</td><td>Dassault Systèmes</td></tr>
-          <tr><td>OCM – Taking Charge of Change (Prosci®)</td><td>MARG</td></tr>
-          <tr><td>Oracle Certified Java Programmer (1Z0-803, Java SE 7)</td><td>Oracle</td></tr>
-          <tr><td>Carving a Professional Edge</td><td>Dale Carnegie</td></tr>
-          <tr><td>INCOSE CSEP <span class="pill">In progress</span></td><td>INCOSE</td></tr>
-          <tr><td>OMG SysML <span class="pill">In progress</span></td><td>Object Management Group</td></tr>
+          <tr><td>3DEXPERIENCE architecture</td><td>Design, configure and run the platform on-premise, on IaaS or PaaS, or on DS Public Cloud, including upgrades and data migration.</td><td>3DSpace, UI3C, JPO, MQL, EKL, MxUpdate</td></tr>
+          <tr><td>MBSE &amp; digital thread</td><td>Trace product intent from system requirements to BOM to manufacturing.</td><td>SysML, Cameo, CATIA Magic</td></tr>
+          <tr><td>Engineering change</td><td>Change workflows that move fast and keep full traceability.</td><td>CR / CO / CA, impact analysis, deviations</td></tr>
+          <tr><td>PLM–ERP integration</td><td>Two-way data exchange so engineering and the business work from the same data.</td><td>SAP S/4HANA, NetSuite, REST, TIF</td></tr>
+          <tr><td>PLM strategy &amp; roadmaps</td><td>Greenfield and brownfield plans, fit-gap studies, tool benchmarking and governance.</td><td>TOGAF, ArchiMate, DS Value Engagement</td></tr>
+          <tr><td>Change adoption</td><td>Get people to actually use the new system: impact assessments, stakeholder plans, role-based training.</td><td>Prosci ADKAR</td></tr>
         </tbody>
       </table>
-      <p class="note">B.E. Computer Science, Pune University · Mentor, PMI Orange County Mentorship Program ·
-        <a href="https://www.credly.com/users/amol-chitte-cert" target="_blank" rel="noopener">Verify badges on Credly</a></p>
     </section>
 
-    <section id="contact">
-      <h2>Get in touch</h2>
-      <p class="note" style="margin-top:0;">Happy to talk about 3DEXPERIENCE, MBSE, engineering change management, digital thread or PLM transformation.</p>
-      <div class="links">
-        <a class="btn primary" href="mailto:amol.chitte@outlook.com">amol.chitte@outlook.com</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/amolchitte/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- REVISION HISTORY -->
+    <section id="history">
+      <div class="head">
+        <h2>Revision history</h2>
+        <p>My career as a drawing would record it: one revision per role, latest first.</p>
+      </div>
+      <table class="rev">
+        <thead><tr><th>Rev</th><th>Role</th><th>Dates</th></tr></thead>
+        <tbody>
+          <tr class="current">
+            <td class="r"><span class="letter">F</span></td>
+            <td><div class="role">PLM &amp; Engineering Change Manager <span class="tag-current">Current</span></div><div class="org">Singer Vehicle Design · Los Angeles, CA</div>
+              <ul>
+                <li>End-to-end PLM workflows linking requirements, design intent and change execution.</li>
+                <li>Traceability from product specs and compliance to changes, deviations and closure.</li>
+                <li>Change adoption programs using Prosci ADKAR across 3DEXPERIENCE, ScanLogic and NetSuite.</li>
+              </ul></td>
+            <td class="when">Nov 2023 – now</td>
+          </tr>
+          <tr>
+            <td class="r"><span class="letter">E</span></td>
+            <td><div class="role">3DX Solution Architect</div><div class="org">Tata Technologies · Los Angeles, CA</div>
+              <ul>
+                <li>Architected 3DEXPERIENCE for a greenfield electric vehicle program, from requirements to manufacturing.</li>
+                <li>MBOM, bill of process and work instructions in DELMIA; 3DX ↔ SAP S/4HANA integration strategy.</li>
+              </ul></td>
+            <td class="when">Jan 2020 – Nov 2023</td>
+          </tr>
+          <tr>
+            <td class="r"><span class="letter">D</span></td>
+            <td><div class="role">PLM Consultant &amp; Technical Lead</div><div class="org">HCL Technologies · India &amp; Japan</div>
+              <ul><li>Systems engineering strategy and MBSE-based rollout of 3DEXPERIENCE for an automotive client.</li></ul></td>
+            <td class="when">Jun 2016 – Jan 2020</td>
+          </tr>
+          <tr>
+            <td class="r"><span class="letter">C</span></td>
+            <td><div class="role">PLM Consultant</div><div class="org">Technia · Mumbai, India</div>
+              <ul><li>Medical device data models and regulatory modules; ENOVIA ↔ ERP integration; onsite upgrade in Finland and workshops in Sweden.</li></ul></td>
+            <td class="when">Mar 2013 – Jun 2016</td>
+          </tr>
+          <tr>
+            <td class="r"><span class="letter">B</span></td>
+            <td><div class="role">PLM Consultant</div><div class="org">IBM · Bangalore, India</div>
+              <ul><li>Integrated Product Development PLM for semiconductor design, material compliance and change.</li></ul></td>
+            <td class="when">Sep 2012 – Mar 2013</td>
+          </tr>
+          <tr>
+            <td class="r"><span class="letter">A</span></td>
+            <td><div class="role">Software Engineer</div><div class="org">3DPLM Software Solutions · Pune, India</div>
+              <ul><li>ENOVIA V6 development for aerospace and CPG, including Search Within Context in the EBOM view.</li></ul></td>
+            <td class="when">Jun 2010 – Aug 2012</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- REACH -->
+    <section>
+      <div class="reach">
+        <div>
+          <h3>Industries</h3>
+          <div class="chips"><span class="chip">Automotive</span><span class="chip">Electric vehicles</span><span class="chip">Aerospace</span><span class="chip">Medical devices</span><span class="chip">Life sciences</span><span class="chip">Semiconductor</span><span class="chip">Consumer goods</span></div>
+        </div>
+        <div>
+          <h3>Worked onsite in</h3>
+          <div class="chips"><span class="chip">United States</span><span class="chip">Japan</span><span class="chip">Finland</span><span class="chip">Sweden</span><span class="chip">India</span></div>
+        </div>
       </div>
     </section>
 
-    <p class="quote">"Bridging systems architecture and PLM execution: enabling digital continuity from concept to manufacturing."</p>
-    <footer>© <span id="y"></span> Amol Chitte</footer>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="head"><h2>Toolbox</h2></div>
+      <div class="skills">
+        <div><h3>PLM platforms</h3><p>3DEXPERIENCE, CATIA, ENOVIA, DELMIA, 3DSpace</p></div>
+        <div><h3>ENOVIA development</h3><p>UI3C, JPO, MQL, TCL, JSP, Java, JavaScript, EKL</p></div>
+        <div><h3>Dashboards &amp; APIs</h3><p>UWA framework, 3DDashboard widgets, REST, TVC (Technia)</p></div>
+        <div><h3>MBSE &amp; architecture</h3><p>SysML, Cameo, CATIA Magic, ArchiMate, TOGAF, Visio</p></div>
+        <div><h3>Quality &amp; manufacturing</h3><p>Non-conformance, CAPA, APQP, PPAP, bill of process</p></div>
+        <div><h3>Delivery &amp; DevOps</h3><p>Jira, Confluence, Azure DevOps, Jenkins, GitLab, Git, SVN</p></div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+      <div class="head">
+        <h2>Certifications</h2>
+        <p>Shown with PLM lifecycle states. <a href="https://www.credly.com/users/amol-chitte-cert" target="_blank" rel="noopener">Check them on Credly</a>.</p>
+      </div>
+      <table class="certs">
+        <thead><tr><th>Certification</th><th>Issued by</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Project Management Professional (PMP®)</td><td>Project Management Institute</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>TOGAF® 9 Certified</td><td>The Open Group</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>ArchiMate®</td><td>The Open Group</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>3DEXPERIENCE Solution Architect</td><td>Dassault Systèmes</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>3DEXPERIENCE Systems Engineering</td><td>Dassault Systèmes</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>Value Engagement Framework for C&amp;SI Partners</td><td>Dassault Systèmes</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>OCM – Taking Charge of Change (Prosci®)</td><td>MARG</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>Oracle Certified Java Programmer (1Z0-803)</td><td>Oracle</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>Carving a Professional Edge</td><td>Dale Carnegie</td><td><span class="state released">Released</span></td></tr>
+          <tr><td>INCOSE CSEP</td><td>INCOSE</td><td><span class="state inwork">In work</span></td></tr>
+          <tr><td>OMG SysML</td><td>Object Management Group</td><td><span class="state inwork">In work</span></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:16px;color:var(--graphite);font-size:15px;">B.E. Computer Science, Pune University. Mentor in the PMI Orange County Mentorship Program.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <h2>Let's talk PLM.</h2>
+          <p>Ask me about 3DEXPERIENCE, MBSE, engineering change, digital thread or PLM transformation.</p>
+        </div>
+        <div class="actions" style="margin-top:0;">
+          <a class="btn solid" href="mailto:amol.chitte@outlook.com">amol.chitte@outlook.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/amolchitte/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <footer>
+    <span>Drawn by A. Chitte</span>
+    <span>Sheet 1 of 1 · Rev F · © <span id="y"></span></span>
+  </footer>
+</div>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
